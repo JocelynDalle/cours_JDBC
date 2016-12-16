@@ -8,10 +8,8 @@ public class Basket {
 	String brand;
 	String color;
 	float price;
-	String login;
+	User user;
 	java.sql.Date basket_date;
-
-
 
 	public int getId() {
 		return id;
@@ -45,12 +43,12 @@ public class Basket {
 		this.price = price;
 	}
 
-	public String getLogin() {
-		return login;
+	public User getUser() {
+		return user;
 	}
 
-	public void setLogin(String login) {
-		this.login = login;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public java.sql.Date getBasket_date() {
@@ -63,27 +61,42 @@ public class Basket {
 
 	@Override
 	public String toString() {
-		return "Basket [id=" + id + ", brand=" + brand + ", color=" + color + ", price=" + price + ", login=" + login
-				+ ", basket_date=" + basket_date + "]";
+		return "Basket [id=" + id + ", brand=" + brand + ", color=" + color + ", price=" + price + ", login="
+				+ user.getLogin() + ", basket_date=" + basket_date + "]";
 	}
 
-	public Basket(String brand, String color, float price, String login, Date basket_date) {
+	public Basket(String brand, String color, float price, User user, Date basket_date) {
 		super();
 		this.brand = brand;
 		this.color = color;
 		this.price = price;
-		this.login = login;
+		this.user = user;
 		this.basket_date = basket_date;
 	}
 
-	public Basket(int id, String brand, String color, float price, String login, Date basket_date) {
+	public Basket(String brand, String color, float price, Date basket_date) {
+		super();
+		this.brand = brand;
+		this.color = color;
+		this.price = price;
+		this.basket_date = basket_date;
+	}
+	
+	public Basket(int id, String brand, String color, float price, User user, Date basket_date) {
 		super();
 		this.id = id;
 		this.brand = brand;
 		this.color = color;
 		this.price = price;
-		this.login = login;
+		this.user = user;
 		this.basket_date = basket_date;
 	}
 	
+	public Basket(String brand, String color, float price) {
+		super();
+		this.brand = brand;
+		this.color = color;
+		this.price = price;
+	}
+
 }
